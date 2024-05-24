@@ -1,0 +1,613 @@
+{
+	"folders": [
+		{
+			"name": "RTSGame",
+			"path": "."
+		},
+		{
+			"name": "UE5",
+			"path": "D:\\Programs\\Epic Games\\UE_5.3"
+		}
+	],
+	"settings": {
+		"typescript.tsc.autoDetect": "off",
+		"npm.autoDetect": "off"
+	},
+	"extensions": {
+		"recommendations": [
+			"ms-vscode.cpptools",
+			"ms-dotnettools.csharp"
+		]
+	},
+	"tasks": {
+		"version": "2.0.0",
+		"tasks": [
+			{
+				"label": "RTSGame Win64 Debug Build",
+				"group": "build",
+				"command": "Engine\\Build\\BatchFiles\\Build.bat",
+				"args": [
+					"RTSGame",
+					"Win64",
+					"Debug",
+					"D:\\Documents\\Unreal Projects\\CS179N\\CS179RTS\\RTSGame.uproject",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "D:\\Programs\\Epic Games\\UE_5.3"
+				}
+			},
+			{
+				"label": "RTSGame Win64 Debug Rebuild",
+				"group": "build",
+				"command": "Engine\\Build\\BatchFiles\\Build.bat",
+				"args": [
+					"RTSGame",
+					"Win64",
+					"Debug",
+					"D:\\Documents\\Unreal Projects\\CS179N\\CS179RTS\\RTSGame.uproject",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"dependsOn": [
+					"RTSGame Win64 Debug Clean"
+				],
+				"type": "shell",
+				"options": {
+					"cwd": "D:\\Programs\\Epic Games\\UE_5.3"
+				}
+			},
+			{
+				"label": "RTSGame Win64 Debug Clean",
+				"group": "build",
+				"command": "Engine\\Build\\BatchFiles\\Clean.bat",
+				"args": [
+					"RTSGame",
+					"Win64",
+					"Debug",
+					"D:\\Documents\\Unreal Projects\\CS179N\\CS179RTS\\RTSGame.uproject",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "D:\\Programs\\Epic Games\\UE_5.3"
+				}
+			},
+			{
+				"label": "RTSGame Win64 DebugGame Build",
+				"group": "build",
+				"command": "Engine\\Build\\BatchFiles\\Build.bat",
+				"args": [
+					"RTSGame",
+					"Win64",
+					"DebugGame",
+					"D:\\Documents\\Unreal Projects\\CS179N\\CS179RTS\\RTSGame.uproject",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "D:\\Programs\\Epic Games\\UE_5.3"
+				}
+			},
+			{
+				"label": "RTSGame Win64 DebugGame Rebuild",
+				"group": "build",
+				"command": "Engine\\Build\\BatchFiles\\Build.bat",
+				"args": [
+					"RTSGame",
+					"Win64",
+					"DebugGame",
+					"D:\\Documents\\Unreal Projects\\CS179N\\CS179RTS\\RTSGame.uproject",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"dependsOn": [
+					"RTSGame Win64 DebugGame Clean"
+				],
+				"type": "shell",
+				"options": {
+					"cwd": "D:\\Programs\\Epic Games\\UE_5.3"
+				}
+			},
+			{
+				"label": "RTSGame Win64 DebugGame Clean",
+				"group": "build",
+				"command": "Engine\\Build\\BatchFiles\\Clean.bat",
+				"args": [
+					"RTSGame",
+					"Win64",
+					"DebugGame",
+					"D:\\Documents\\Unreal Projects\\CS179N\\CS179RTS\\RTSGame.uproject",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "D:\\Programs\\Epic Games\\UE_5.3"
+				}
+			},
+			{
+				"label": "RTSGame Win64 Development Build",
+				"group": "build",
+				"command": "Engine\\Build\\BatchFiles\\Build.bat",
+				"args": [
+					"RTSGame",
+					"Win64",
+					"Development",
+					"D:\\Documents\\Unreal Projects\\CS179N\\CS179RTS\\RTSGame.uproject",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "D:\\Programs\\Epic Games\\UE_5.3"
+				}
+			},
+			{
+				"label": "RTSGame Win64 Development Rebuild",
+				"group": "build",
+				"command": "Engine\\Build\\BatchFiles\\Build.bat",
+				"args": [
+					"RTSGame",
+					"Win64",
+					"Development",
+					"D:\\Documents\\Unreal Projects\\CS179N\\CS179RTS\\RTSGame.uproject",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"dependsOn": [
+					"RTSGame Win64 Development Clean"
+				],
+				"type": "shell",
+				"options": {
+					"cwd": "D:\\Programs\\Epic Games\\UE_5.3"
+				}
+			},
+			{
+				"label": "RTSGame Win64 Development Clean",
+				"group": "build",
+				"command": "Engine\\Build\\BatchFiles\\Clean.bat",
+				"args": [
+					"RTSGame",
+					"Win64",
+					"Development",
+					"D:\\Documents\\Unreal Projects\\CS179N\\CS179RTS\\RTSGame.uproject",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "D:\\Programs\\Epic Games\\UE_5.3"
+				}
+			},
+			{
+				"label": "RTSGame Win64 Test Build",
+				"group": "build",
+				"command": "Engine\\Build\\BatchFiles\\Build.bat",
+				"args": [
+					"RTSGame",
+					"Win64",
+					"Test",
+					"D:\\Documents\\Unreal Projects\\CS179N\\CS179RTS\\RTSGame.uproject",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "D:\\Programs\\Epic Games\\UE_5.3"
+				}
+			},
+			{
+				"label": "RTSGame Win64 Test Rebuild",
+				"group": "build",
+				"command": "Engine\\Build\\BatchFiles\\Build.bat",
+				"args": [
+					"RTSGame",
+					"Win64",
+					"Test",
+					"D:\\Documents\\Unreal Projects\\CS179N\\CS179RTS\\RTSGame.uproject",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"dependsOn": [
+					"RTSGame Win64 Test Clean"
+				],
+				"type": "shell",
+				"options": {
+					"cwd": "D:\\Programs\\Epic Games\\UE_5.3"
+				}
+			},
+			{
+				"label": "RTSGame Win64 Test Clean",
+				"group": "build",
+				"command": "Engine\\Build\\BatchFiles\\Clean.bat",
+				"args": [
+					"RTSGame",
+					"Win64",
+					"Test",
+					"D:\\Documents\\Unreal Projects\\CS179N\\CS179RTS\\RTSGame.uproject",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "D:\\Programs\\Epic Games\\UE_5.3"
+				}
+			},
+			{
+				"label": "RTSGame Win64 Shipping Build",
+				"group": "build",
+				"command": "Engine\\Build\\BatchFiles\\Build.bat",
+				"args": [
+					"RTSGame",
+					"Win64",
+					"Shipping",
+					"D:\\Documents\\Unreal Projects\\CS179N\\CS179RTS\\RTSGame.uproject",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "D:\\Programs\\Epic Games\\UE_5.3"
+				}
+			},
+			{
+				"label": "RTSGame Win64 Shipping Rebuild",
+				"group": "build",
+				"command": "Engine\\Build\\BatchFiles\\Build.bat",
+				"args": [
+					"RTSGame",
+					"Win64",
+					"Shipping",
+					"D:\\Documents\\Unreal Projects\\CS179N\\CS179RTS\\RTSGame.uproject",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"dependsOn": [
+					"RTSGame Win64 Shipping Clean"
+				],
+				"type": "shell",
+				"options": {
+					"cwd": "D:\\Programs\\Epic Games\\UE_5.3"
+				}
+			},
+			{
+				"label": "RTSGame Win64 Shipping Clean",
+				"group": "build",
+				"command": "Engine\\Build\\BatchFiles\\Clean.bat",
+				"args": [
+					"RTSGame",
+					"Win64",
+					"Shipping",
+					"D:\\Documents\\Unreal Projects\\CS179N\\CS179RTS\\RTSGame.uproject",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "D:\\Programs\\Epic Games\\UE_5.3"
+				}
+			},
+			{
+				"label": "RTSGameEditor Win64 Debug Build",
+				"group": "build",
+				"command": "Engine\\Build\\BatchFiles\\Build.bat",
+				"args": [
+					"RTSGameEditor",
+					"Win64",
+					"Debug",
+					"D:\\Documents\\Unreal Projects\\CS179N\\CS179RTS\\RTSGame.uproject",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "D:\\Programs\\Epic Games\\UE_5.3"
+				}
+			},
+			{
+				"label": "RTSGameEditor Win64 Debug Rebuild",
+				"group": "build",
+				"command": "Engine\\Build\\BatchFiles\\Build.bat",
+				"args": [
+					"RTSGameEditor",
+					"Win64",
+					"Debug",
+					"D:\\Documents\\Unreal Projects\\CS179N\\CS179RTS\\RTSGame.uproject",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"dependsOn": [
+					"RTSGameEditor Win64 Debug Clean"
+				],
+				"type": "shell",
+				"options": {
+					"cwd": "D:\\Programs\\Epic Games\\UE_5.3"
+				}
+			},
+			{
+				"label": "RTSGameEditor Win64 Debug Clean",
+				"group": "build",
+				"command": "Engine\\Build\\BatchFiles\\Clean.bat",
+				"args": [
+					"RTSGameEditor",
+					"Win64",
+					"Debug",
+					"D:\\Documents\\Unreal Projects\\CS179N\\CS179RTS\\RTSGame.uproject",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "D:\\Programs\\Epic Games\\UE_5.3"
+				}
+			},
+			{
+				"label": "RTSGameEditor Win64 DebugGame Build",
+				"group": "build",
+				"command": "Engine\\Build\\BatchFiles\\Build.bat",
+				"args": [
+					"RTSGameEditor",
+					"Win64",
+					"DebugGame",
+					"D:\\Documents\\Unreal Projects\\CS179N\\CS179RTS\\RTSGame.uproject",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "D:\\Programs\\Epic Games\\UE_5.3"
+				}
+			},
+			{
+				"label": "RTSGameEditor Win64 DebugGame Rebuild",
+				"group": "build",
+				"command": "Engine\\Build\\BatchFiles\\Build.bat",
+				"args": [
+					"RTSGameEditor",
+					"Win64",
+					"DebugGame",
+					"D:\\Documents\\Unreal Projects\\CS179N\\CS179RTS\\RTSGame.uproject",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"dependsOn": [
+					"RTSGameEditor Win64 DebugGame Clean"
+				],
+				"type": "shell",
+				"options": {
+					"cwd": "D:\\Programs\\Epic Games\\UE_5.3"
+				}
+			},
+			{
+				"label": "RTSGameEditor Win64 DebugGame Clean",
+				"group": "build",
+				"command": "Engine\\Build\\BatchFiles\\Clean.bat",
+				"args": [
+					"RTSGameEditor",
+					"Win64",
+					"DebugGame",
+					"D:\\Documents\\Unreal Projects\\CS179N\\CS179RTS\\RTSGame.uproject",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "D:\\Programs\\Epic Games\\UE_5.3"
+				}
+			},
+			{
+				"label": "RTSGameEditor Win64 Development Build",
+				"group": "build",
+				"command": "Engine\\Build\\BatchFiles\\Build.bat",
+				"args": [
+					"RTSGameEditor",
+					"Win64",
+					"Development",
+					"D:\\Documents\\Unreal Projects\\CS179N\\CS179RTS\\RTSGame.uproject",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "D:\\Programs\\Epic Games\\UE_5.3"
+				}
+			},
+			{
+				"label": "RTSGameEditor Win64 Development Rebuild",
+				"group": "build",
+				"command": "Engine\\Build\\BatchFiles\\Build.bat",
+				"args": [
+					"RTSGameEditor",
+					"Win64",
+					"Development",
+					"D:\\Documents\\Unreal Projects\\CS179N\\CS179RTS\\RTSGame.uproject",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"dependsOn": [
+					"RTSGameEditor Win64 Development Clean"
+				],
+				"type": "shell",
+				"options": {
+					"cwd": "D:\\Programs\\Epic Games\\UE_5.3"
+				}
+			},
+			{
+				"label": "RTSGameEditor Win64 Development Clean",
+				"group": "build",
+				"command": "Engine\\Build\\BatchFiles\\Clean.bat",
+				"args": [
+					"RTSGameEditor",
+					"Win64",
+					"Development",
+					"D:\\Documents\\Unreal Projects\\CS179N\\CS179RTS\\RTSGame.uproject",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "D:\\Programs\\Epic Games\\UE_5.3"
+				}
+			}
+		]
+	},
+	"launch": {
+		"version": "0.2.0",
+		"configurations": [
+			{
+				"name": "Launch RTSGame (Debug)",
+				"request": "launch",
+				"program": "D:\\Documents\\Unreal Projects\\CS179N\\CS179RTS\\Binaries\\Win64\\UnrealGame-Win64-Debug.exe",
+				"preLaunchTask": "RTSGame Win64 Debug Build",
+				"args": [
+				],
+				"cwd": "D:\\Programs\\Epic Games\\UE_5.3",
+				"stopAtEntry": false,
+				"console": "externalTerminal",
+				"type": "cppvsdbg",
+				"visualizerFile": "D:\\Programs\\Epic Games\\UE_5.3\\Engine\\Extras\\VisualStudioDebugging\\Unreal.natvis",
+				"sourceFileMap": {
+					"D:\\build\\++UE5\\Sync": "D:\\Programs\\Epic Games\\UE_5.3"
+				}
+			},
+			{
+				"name": "Launch RTSGame (DebugGame)",
+				"request": "launch",
+				"program": "D:\\Documents\\Unreal Projects\\CS179N\\CS179RTS\\Binaries\\Win64\\UnrealGame-Win64-DebugGame.exe",
+				"preLaunchTask": "RTSGame Win64 DebugGame Build",
+				"args": [
+				],
+				"cwd": "D:\\Programs\\Epic Games\\UE_5.3",
+				"stopAtEntry": false,
+				"console": "externalTerminal",
+				"type": "cppvsdbg",
+				"visualizerFile": "D:\\Programs\\Epic Games\\UE_5.3\\Engine\\Extras\\VisualStudioDebugging\\Unreal.natvis",
+				"sourceFileMap": {
+					"D:\\build\\++UE5\\Sync": "D:\\Programs\\Epic Games\\UE_5.3"
+				}
+			},
+			{
+				"name": "Launch RTSGame (Development)",
+				"request": "launch",
+				"program": "D:\\Documents\\Unreal Projects\\CS179N\\CS179RTS\\Binaries\\Win64\\UnrealGame.exe",
+				"preLaunchTask": "RTSGame Win64 Development Build",
+				"args": [
+				],
+				"cwd": "D:\\Programs\\Epic Games\\UE_5.3",
+				"stopAtEntry": false,
+				"console": "externalTerminal",
+				"type": "cppvsdbg",
+				"visualizerFile": "D:\\Programs\\Epic Games\\UE_5.3\\Engine\\Extras\\VisualStudioDebugging\\Unreal.natvis",
+				"sourceFileMap": {
+					"D:\\build\\++UE5\\Sync": "D:\\Programs\\Epic Games\\UE_5.3"
+				}
+			},
+			{
+				"name": "Launch RTSGame (Test)",
+				"request": "launch",
+				"program": "D:\\Documents\\Unreal Projects\\CS179N\\CS179RTS\\Binaries\\Win64\\UnrealGame-Win64-Test.exe",
+				"preLaunchTask": "RTSGame Win64 Test Build",
+				"args": [
+				],
+				"cwd": "D:\\Programs\\Epic Games\\UE_5.3",
+				"stopAtEntry": false,
+				"console": "externalTerminal",
+				"type": "cppvsdbg",
+				"visualizerFile": "D:\\Programs\\Epic Games\\UE_5.3\\Engine\\Extras\\VisualStudioDebugging\\Unreal.natvis",
+				"sourceFileMap": {
+					"D:\\build\\++UE5\\Sync": "D:\\Programs\\Epic Games\\UE_5.3"
+				}
+			},
+			{
+				"name": "Launch RTSGame (Shipping)",
+				"request": "launch",
+				"program": "D:\\Documents\\Unreal Projects\\CS179N\\CS179RTS\\Binaries\\Win64\\UnrealGame-Win64-Shipping.exe",
+				"preLaunchTask": "RTSGame Win64 Shipping Build",
+				"args": [
+				],
+				"cwd": "D:\\Programs\\Epic Games\\UE_5.3",
+				"stopAtEntry": false,
+				"console": "externalTerminal",
+				"type": "cppvsdbg",
+				"visualizerFile": "D:\\Programs\\Epic Games\\UE_5.3\\Engine\\Extras\\VisualStudioDebugging\\Unreal.natvis",
+				"sourceFileMap": {
+					"D:\\build\\++UE5\\Sync": "D:\\Programs\\Epic Games\\UE_5.3"
+				}
+			},
+			{
+				"name": "Launch RTSGameEditor (Debug)",
+				"request": "launch",
+				"program": "D:\\Programs\\Epic Games\\UE_5.3\\Engine\\Binaries\\Win64\\UnrealEditor-Win64-Debug.exe",
+				"preLaunchTask": "RTSGameEditor Win64 Debug Build",
+				"args": [
+					"D:\\Documents\\Unreal Projects\\CS179N\\CS179RTS\\RTSGame.uproject"
+				],
+				"cwd": "D:\\Programs\\Epic Games\\UE_5.3",
+				"stopAtEntry": false,
+				"console": "externalTerminal",
+				"type": "cppvsdbg",
+				"visualizerFile": "D:\\Programs\\Epic Games\\UE_5.3\\Engine\\Extras\\VisualStudioDebugging\\Unreal.natvis",
+				"sourceFileMap": {
+					"D:\\build\\++UE5\\Sync": "D:\\Programs\\Epic Games\\UE_5.3"
+				}
+			},
+			{
+				"name": "Launch RTSGameEditor (DebugGame)",
+				"request": "launch",
+				"program": "D:\\Programs\\Epic Games\\UE_5.3\\Engine\\Binaries\\Win64\\UnrealEditor-Win64-DebugGame.exe",
+				"preLaunchTask": "RTSGameEditor Win64 DebugGame Build",
+				"args": [
+					"D:\\Documents\\Unreal Projects\\CS179N\\CS179RTS\\RTSGame.uproject"
+				],
+				"cwd": "D:\\Programs\\Epic Games\\UE_5.3",
+				"stopAtEntry": false,
+				"console": "externalTerminal",
+				"type": "cppvsdbg",
+				"visualizerFile": "D:\\Programs\\Epic Games\\UE_5.3\\Engine\\Extras\\VisualStudioDebugging\\Unreal.natvis",
+				"sourceFileMap": {
+					"D:\\build\\++UE5\\Sync": "D:\\Programs\\Epic Games\\UE_5.3"
+				}
+			},
+			{
+				"name": "Launch RTSGameEditor (Development)",
+				"request": "launch",
+				"program": "D:\\Programs\\Epic Games\\UE_5.3\\Engine\\Binaries\\Win64\\UnrealEditor.exe",
+				"preLaunchTask": "RTSGameEditor Win64 Development Build",
+				"args": [
+					"D:\\Documents\\Unreal Projects\\CS179N\\CS179RTS\\RTSGame.uproject"
+				],
+				"cwd": "D:\\Programs\\Epic Games\\UE_5.3",
+				"stopAtEntry": false,
+				"console": "externalTerminal",
+				"type": "cppvsdbg",
+				"visualizerFile": "D:\\Programs\\Epic Games\\UE_5.3\\Engine\\Extras\\VisualStudioDebugging\\Unreal.natvis",
+				"sourceFileMap": {
+					"D:\\build\\++UE5\\Sync": "D:\\Programs\\Epic Games\\UE_5.3"
+				}
+			},
+			{
+				"name": "Generate Project Files",
+				"type": "coreclr",
+				"request": "launch",
+				"preLaunchTask": "UnrealBuildTool Win64 Development Build",
+				"program": "D:\\Programs\\Epic Games\\UE_5.3\\Engine\\Build\\BatchFiles\\RunUBT.bat",
+				"args": [
+					"-projectfiles",
+					"-vscode",
+					"-project=D:\\Documents\\Unreal Projects\\CS179N\\CS179RTS\\RTSGame.uproject",
+					"-game",
+					"-engine",
+					"-dotnet"
+				],
+				"console": "externalTerminal",
+				"stopAtEntry": false,
+				"cwd": "D:\\Programs\\Epic Games\\UE_5.3"
+			}
+		]
+	}
+}
