@@ -21,6 +21,20 @@ struct FJob {
 };
 
 USTRUCT(BlueprintType)
+struct FDistrict {
+    GENERATED_BODY()
+
+    UPROPERTY(EditAnywhere, BlueprintReadWrite)
+    int32 Max;
+
+    UPROPERTY(EditAnywhere, BlueprintReadWrite)
+    int32 Current;
+
+    FDistrict()
+        : Max(0), Current(0) {}
+};
+
+USTRUCT(BlueprintType)
 struct FResourceList {
     GENERATED_BODY()
 
@@ -67,10 +81,10 @@ public:
 
 	// For Districts
     UFUNCTION(BlueprintCallable)
-    void AddCurrentWorker(UPARAM(DisplayName="Job Name") FString jobName);
+    void AddCurrentWorker(FString jobName);
 
     UFUNCTION(BlueprintCallable)
-    int32 GetCurrentWorker(UPARAM(DisplayName="Job Name") FString jobName);
+    int32 GetCurrentWorker(FString jobName);
 
     UFUNCTION(BlueprintCallable)
     void RemoveCurrentWorker(FString jobName);
@@ -80,6 +94,15 @@ public:
 
     // For Buildings
     void AddMaxWorker(int32 index);
+
+    UFUNCTION(BlueprintCallable)
+    int32 GetCurrentDistrict(FName districtName);
+
+    UFUNCTION(BlueprintCallable)
+    void AddCurrentDistrict(FName districtName);
+
+    UFUNCTION(BlueprintCallable)
+    int32 GetMaxDistrict(FName districtName);
 
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="PlanetInfo")
     int32 Population;
@@ -107,4 +130,19 @@ public:
 
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="PlanetInfo")
     FResourceList IntervalProduction;
+
+    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Districts")
+    FDistrict Mining;
+
+    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Districts")
+    FDistrict Alloys;
+
+    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Districts")
+    FDistrict Energy;
+
+    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Districts")
+    FDistrict Farming;
+
+    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Districts")
+    FDistrict Housing;
 };
