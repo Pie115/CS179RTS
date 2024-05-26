@@ -76,7 +76,8 @@ void Acpp_PlanetBase::AddMaxWorker(int32 index)
     }
 }
 
-void Acpp_PlanetBase::AddCurrentWorker(FString Name)
+UFUNCTION(BlueprintCallable)
+void Acpp_PlanetBase::AddCurrentWorker(UPARAM(DisplayName = "Job Name") FString Name)
 {
     // Cannot Assign Workers If There Is No One To Assign
     if(Unemployed == 0)
@@ -87,52 +88,103 @@ void Acpp_PlanetBase::AddCurrentWorker(FString Name)
     if(Name == "Technician")
     {
         Technicians.Current++;
+        Unemployed--;
     }
     else if(Name == "Miner")
     {
         Miners.Current++;
+        Unemployed--;
     }
     else if(Name == "Farmer")
     {
         Farmers.Current++;
+        Unemployed--;
     }
     else if(Name == "Metallurgist")
     {
         Metallurgists.Current++;
+        Unemployed--;
     }
     else if(Name == "Scientist")
     {
         Scientists.Current++;
+        Unemployed--;
     }
     else if(Name == "Gunner")
     {
         Gunners++;
+        Unemployed--;
     }
 }
+
+UFUNCTION(BlueprintCallable)
+int32 Acpp_PlanetBase::GetCurrentWorker(UPARAM(DisplayName = "Job Name") FString Name)
+{
+    if (Name == "Technician")
+    {
+        return Technicians.Current;
+    }
+    else if (Name == "Miner")
+    {
+        return Miners.Current;
+    }
+    else if (Name == "Farmer")
+    {
+        return Farmers.Current;
+    }
+    else if (Name == "Metallurgist")
+    {
+        return Metallurgists.Current;
+    }
+    else if (Name == "Scientist")
+    {
+        return Scientists.Current;
+    }
+    else if (Name == "Gunner")
+    {
+        return Gunners;
+    }
+
+    return 0;
+}
+
+UFUNCTION(BlueprintCallable)
 void Acpp_PlanetBase::RemoveCurrentWorker(FString Name)
 {
     if(Name == "Technician" && Technicians.Current)
     {
         Technicians.Current--;
+        Unemployed++;
     }
     else if(Name == "Miner" && Miners.Current)
     {
         Miners.Current--;
+        Unemployed++;
     }
     else if(Name == "Farmer" && Farmers.Current)
     {
         Farmers.Current--;
+        Unemployed++;
     }
     else if(Name == "Metallurgist" && Metallurgists.Current)
     {
         Metallurgists.Current--;
+        Unemployed++;
     }
     else if(Name == "Scientist" && Scientists.Current)
     {
         Scientists.Current--;
+        Unemployed++;
     }
     else if(Name == "Gunner" && Gunners)
     {
         Gunners--;
+        Unemployed++;
     }
+}
+
+UFUNCTION(BlueprintCallable)
+int32 Acpp_PlanetBase::GetTotalWorker()
+{
+    return Technicians.Current + Miners.Current + Farmers.Current + Metallurgists.Current + Scientists.Current + Gunners;
 }

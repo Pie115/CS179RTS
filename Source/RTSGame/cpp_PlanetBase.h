@@ -66,12 +66,20 @@ public:
     void AddMaxWorker(FString name);
 
 	// For Districts
-    void AddCurrentWorker(FString jobName);
-	
-	// For Buildings
-    void AddMaxWorker(int32 index);
+    UFUNCTION(BlueprintCallable)
+    void AddCurrentWorker(UPARAM(DisplayName="Job Name") FString jobName);
 
+    UFUNCTION(BlueprintCallable)
+    int32 GetCurrentWorker(UPARAM(DisplayName="Job Name") FString jobName);
+
+    UFUNCTION(BlueprintCallable)
     void RemoveCurrentWorker(FString jobName);
+    
+    UFUNCTION(BlueprintCallable)
+    int32 GetTotalWorker();
+
+    // For Buildings
+    void AddMaxWorker(int32 index);
 
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="PlanetInfo")
     int32 Population;
