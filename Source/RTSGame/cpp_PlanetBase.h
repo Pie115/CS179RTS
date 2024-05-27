@@ -104,6 +104,12 @@ public:
     UFUNCTION(BlueprintCallable)
     int32 GetMaxDistrict(FName districtName);
 
+    UFUNCTION(BlueprintCallable)
+    FName GetBuildingAt(int32 index);
+
+    UFUNCTION(BlueprintCallable)
+    void SetBuildingAt(int32 index, FName building);
+
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="PlanetInfo")
     int32 Population;
 
@@ -145,4 +151,7 @@ public:
 
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Districts")
     FDistrict Housing;
+
+    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "PlanetInfo")
+    TArray<FName> Buildings;
 };

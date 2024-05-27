@@ -15,7 +15,6 @@ Acpp_PlanetBase::Acpp_PlanetBase()
 void Acpp_PlanetBase::BeginPlay()
 {
 	Super::BeginPlay();
-	
 }
 
 // Called every frame
@@ -270,4 +269,24 @@ int32 Acpp_PlanetBase::GetMaxDistrict(FName districtName)
     }
 
     return 0;
+}
+
+UFUNCTION(BlueprintCallable)
+FName Acpp_PlanetBase::GetBuildingAt(int32 index)
+{
+    if (index >= 0 && index < 12)
+    {
+        return Buildings[index];
+    }
+    return Buildings[0];
+}
+
+UFUNCTION(BlueprintCallable)
+void Acpp_PlanetBase::SetBuildingAt(int32 index, FName building)
+{
+    if (index >= 0 && index < 12)
+    {
+        Buildings[index] = building;
+        AddMaxWorker(building.ToString());
+    }
 }
