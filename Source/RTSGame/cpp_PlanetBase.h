@@ -21,6 +21,20 @@ struct FJob {
 };
 
 USTRUCT(BlueprintType)
+struct FDistrict {
+    GENERATED_BODY()
+
+    UPROPERTY(EditAnywhere, BlueprintReadWrite)
+    int32 Max;
+
+    UPROPERTY(EditAnywhere, BlueprintReadWrite)
+    int32 Current;
+
+    FDistrict()
+        : Max(0), Current(0) {}
+};
+
+USTRUCT(BlueprintType)
 struct FResourceList {
     GENERATED_BODY()
 
@@ -66,12 +80,35 @@ public:
     void AddMaxWorker(FString name);
 
 	// For Districts
+    UFUNCTION(BlueprintCallable)
     void AddCurrentWorker(FString jobName);
-	
-	// For Buildings
+
+    UFUNCTION(BlueprintCallable)
+    int32 GetCurrentWorker(FString jobName);
+
+    UFUNCTION(BlueprintCallable)
+    void RemoveCurrentWorker(FString jobName);
+    
+    UFUNCTION(BlueprintCallable)
+    int32 GetTotalWorker();
+
+    // For Buildings
     void AddMaxWorker(int32 index);
 
-    void RemoveCurrentWorker(FString jobName);
+    UFUNCTION(BlueprintCallable)
+    int32 GetCurrentDistrict(FName districtName);
+
+    UFUNCTION(BlueprintCallable)
+    void AddCurrentDistrict(FName districtName);
+
+    UFUNCTION(BlueprintCallable)
+    int32 GetMaxDistrict(FName districtName);
+
+    UFUNCTION(BlueprintCallable)
+    FName GetBuildingAt(int32 index);
+
+    UFUNCTION(BlueprintCallable)
+    void SetBuildingAt(int32 index, FName building);
 
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="PlanetInfo")
     int32 Population;
@@ -99,4 +136,22 @@ public:
 
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="PlanetInfo")
     FResourceList IntervalProduction;
+
+    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Districts")
+    FDistrict Mining;
+
+    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Districts")
+    FDistrict Alloys;
+
+    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Districts")
+    FDistrict Energy;
+
+    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Districts")
+    FDistrict Farming;
+
+    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Districts")
+    FDistrict Housing;
+
+    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "PlanetInfo")
+    TArray<FName> Buildings;
 };
