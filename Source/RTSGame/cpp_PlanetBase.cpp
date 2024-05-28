@@ -84,27 +84,27 @@ void Acpp_PlanetBase::AddCurrentWorker(FString Name)
         return;
     }
 
-    if(Name == "Technician")
+    if(Name == "Technician" && Technicians.Current < Technicians.Max)
     {
         Technicians.Current++;
         Unemployed--;
     }
-    else if(Name == "Miner")
+    else if(Name == "Miner" && Miners.Current < Miners.Max)
     {
         Miners.Current++;
         Unemployed--;
     }
-    else if(Name == "Farmer")
+    else if(Name == "Farmer" && Farmers.Current < Farmers.Max)
     {
         Farmers.Current++;
         Unemployed--;
     }
-    else if(Name == "Metallurgist")
+    else if(Name == "Metallurgist" && Metallurgists.Current < Metallurgists.Max)
     {
         Metallurgists.Current++;
         Unemployed--;
     }
-    else if(Name == "Scientist")
+    else if(Name == "Scientist" && Scientists.Current < Scientists.Max)
     {
         Scientists.Current++;
         Unemployed--;
@@ -180,6 +180,33 @@ void Acpp_PlanetBase::RemoveCurrentWorker(FString Name)
         Gunners--;
         Unemployed++;
     }
+}
+
+UFUNCTION(BlueprintCallable)
+int32 Acpp_PlanetBase::GetMaxWorker(FString Name)
+{
+    if (Name == "Technician")
+    {
+        return Technicians.Max;
+    }
+    else if (Name == "Miner")
+    {
+        return Miners.Max;
+    }
+    else if (Name == "Farmer")
+    {
+        return Farmers.Max;
+    }
+    else if (Name == "Metallurgist")
+    {
+        return Metallurgists.Max;
+    }
+    else if (Name == "Scientist")
+    {
+        return Scientists.Max;
+    }
+
+    return 0;
 }
 
 UFUNCTION(BlueprintCallable)

@@ -88,6 +88,9 @@ public:
 
     UFUNCTION(BlueprintCallable)
     void RemoveCurrentWorker(FString jobName);
+
+    UFUNCTION(BlueprintCallable)
+    int32 GetMaxWorker(FString jobName);
     
     UFUNCTION(BlueprintCallable)
     int32 GetTotalWorker();
