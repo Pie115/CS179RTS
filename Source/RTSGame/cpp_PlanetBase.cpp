@@ -195,11 +195,11 @@ int32 Acpp_PlanetBase::GetCurrentDistrict(FName districtName)
     {
         return Mining.Current;
     }
-    if (districtName == "Alloys")
+    if (districtName == "Industrial")
     {
         return Alloys.Current;
     }
-    if (districtName == "Energy")
+    if (districtName == "Generator")
     {
         return Energy.Current;
     }
@@ -207,7 +207,7 @@ int32 Acpp_PlanetBase::GetCurrentDistrict(FName districtName)
     {
         return Farming.Current;
     }
-    if (districtName == "Housing")
+    if (districtName == "Residential")
     {
         return Housing.Current;
     }
@@ -223,12 +223,12 @@ void Acpp_PlanetBase::AddCurrentDistrict(FName districtName)
         Mining.Current++;
         AddMaxWorker(0);
     }
-    if (districtName == "Alloys" && Alloys.Current < Alloys.Max)
+    if (districtName == "Industrial" && Alloys.Current < Alloys.Max)
     {
         Alloys.Current++;
         AddMaxWorker(1);
     }
-    if (districtName == "Energy" && Energy.Current < Energy.Max)
+    if (districtName == "Generator" && Energy.Current < Energy.Max)
     {
         Energy.Current++;
         AddMaxWorker(2);
@@ -238,7 +238,7 @@ void Acpp_PlanetBase::AddCurrentDistrict(FName districtName)
         Farming.Current++;
         AddMaxWorker(3);
     }
-    if (districtName == "Housing" && Housing.Current < Housing.Max)
+    if (districtName == "Residential" && Housing.Current < Housing.Max)
     {
         Housing.Current++;
     }
@@ -251,11 +251,11 @@ int32 Acpp_PlanetBase::GetMaxDistrict(FName districtName)
     {
         return Mining.Max;
     }
-    if (districtName == "Alloys")
+    if (districtName == "Industrial")
     {
         return Alloys.Max;
     }
-    if (districtName == "Energy")
+    if (districtName == "Generator")
     {
         return Energy.Max;
     }
@@ -263,7 +263,7 @@ int32 Acpp_PlanetBase::GetMaxDistrict(FName districtName)
     {
         return Farming.Max;
     }
-    if (districtName == "Housing")
+    if (districtName == "Residential")
     {
         return Housing.Max;
     }
