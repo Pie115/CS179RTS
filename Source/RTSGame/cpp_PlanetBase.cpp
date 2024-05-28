@@ -197,11 +197,11 @@ int32 Acpp_PlanetBase::GetCurrentDistrict(FName districtName)
     }
     if (districtName == "Industrial")
     {
-        return Alloys.Current;
+        return Industrial.Current;
     }
     if (districtName == "Generator")
     {
-        return Energy.Current;
+        return Generator.Current;
     }
     if (districtName == "Farming")
     {
@@ -209,7 +209,7 @@ int32 Acpp_PlanetBase::GetCurrentDistrict(FName districtName)
     }
     if (districtName == "Residential")
     {
-        return Housing.Current;
+        return Residential.Current;
     }
 
     return 0;
@@ -223,14 +223,14 @@ void Acpp_PlanetBase::AddCurrentDistrict(FName districtName)
         Mining.Current++;
         AddMaxWorker(0);
     }
-    if (districtName == "Industrial" && Alloys.Current < Alloys.Max)
+    if (districtName == "Industrial" && Industrial.Current < Industrial.Max)
     {
-        Alloys.Current++;
+        Industrial.Current++;
         AddMaxWorker(1);
     }
-    if (districtName == "Generator" && Energy.Current < Energy.Max)
+    if (districtName == "Generator" && Generator.Current < Generator.Max)
     {
-        Energy.Current++;
+        Generator.Current++;
         AddMaxWorker(2);
     }
     if (districtName == "Farming" && Farming.Current < Farming.Max)
@@ -238,9 +238,9 @@ void Acpp_PlanetBase::AddCurrentDistrict(FName districtName)
         Farming.Current++;
         AddMaxWorker(3);
     }
-    if (districtName == "Residential" && Housing.Current < Housing.Max)
+    if (districtName == "Residential" && Residential.Current < Residential.Max)
     {
-        Housing.Current++;
+        Residential.Current++;
     }
 }
 
@@ -253,11 +253,11 @@ int32 Acpp_PlanetBase::GetMaxDistrict(FName districtName)
     }
     if (districtName == "Industrial")
     {
-        return Alloys.Max;
+        return Industrial.Max;
     }
     if (districtName == "Generator")
     {
-        return Energy.Max;
+        return Generator.Max;
     }
     if (districtName == "Farming")
     {
@@ -265,7 +265,7 @@ int32 Acpp_PlanetBase::GetMaxDistrict(FName districtName)
     }
     if (districtName == "Residential")
     {
-        return Housing.Max;
+        return Residential.Max;
     }
 
     return 0;
