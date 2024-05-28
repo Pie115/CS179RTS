@@ -195,21 +195,21 @@ int32 Acpp_PlanetBase::GetCurrentDistrict(FName districtName)
     {
         return Mining.Current;
     }
-    if (districtName == "Alloys")
+    if (districtName == "Industrial")
     {
-        return Alloys.Current;
+        return Industrial.Current;
     }
-    if (districtName == "Energy")
+    if (districtName == "Generator")
     {
-        return Energy.Current;
+        return Generator.Current;
     }
     if (districtName == "Farming")
     {
         return Farming.Current;
     }
-    if (districtName == "Housing")
+    if (districtName == "Residential")
     {
-        return Housing.Current;
+        return Residential.Current;
     }
 
     return 0;
@@ -223,14 +223,14 @@ void Acpp_PlanetBase::AddCurrentDistrict(FName districtName)
         Mining.Current++;
         AddMaxWorker(0);
     }
-    if (districtName == "Alloys" && Alloys.Current < Alloys.Max)
+    if (districtName == "Industrial" && Industrial.Current < Industrial.Max)
     {
-        Alloys.Current++;
+        Industrial.Current++;
         AddMaxWorker(1);
     }
-    if (districtName == "Energy" && Energy.Current < Energy.Max)
+    if (districtName == "Generator" && Generator.Current < Generator.Max)
     {
-        Energy.Current++;
+        Generator.Current++;
         AddMaxWorker(2);
     }
     if (districtName == "Farming" && Farming.Current < Farming.Max)
@@ -238,9 +238,9 @@ void Acpp_PlanetBase::AddCurrentDistrict(FName districtName)
         Farming.Current++;
         AddMaxWorker(3);
     }
-    if (districtName == "Housing" && Housing.Current < Housing.Max)
+    if (districtName == "Residential" && Residential.Current < Residential.Max)
     {
-        Housing.Current++;
+        Residential.Current++;
     }
 }
 
@@ -251,21 +251,21 @@ int32 Acpp_PlanetBase::GetMaxDistrict(FName districtName)
     {
         return Mining.Max;
     }
-    if (districtName == "Alloys")
+    if (districtName == "Industrial")
     {
-        return Alloys.Max;
+        return Industrial.Max;
     }
-    if (districtName == "Energy")
+    if (districtName == "Generator")
     {
-        return Energy.Max;
+        return Generator.Max;
     }
     if (districtName == "Farming")
     {
         return Farming.Max;
     }
-    if (districtName == "Housing")
+    if (districtName == "Residential")
     {
-        return Housing.Max;
+        return Residential.Max;
     }
 
     return 0;

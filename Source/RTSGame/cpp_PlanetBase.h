@@ -141,16 +141,16 @@ public:
     FDistrict Mining;
 
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Districts")
-    FDistrict Alloys;
+    FDistrict Industrial;
 
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Districts")
-    FDistrict Energy;
+    FDistrict Generator;
 
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Districts")
     FDistrict Farming;
 
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Districts")
-    FDistrict Housing;
+    FDistrict Residential;
 
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "PlanetInfo")
     TArray<FName> Buildings;
