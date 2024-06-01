@@ -24,6 +24,7 @@ void Acpp_PlanetBase::Tick(float DeltaTime)
 
 }
 
+UFUNCTION(BlueprintCallable)
 void Acpp_PlanetBase::CalculateIntervalProduction()
 {
     IntervalProduction = FResourceList();
