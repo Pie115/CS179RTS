@@ -51,7 +51,18 @@ void Acpp_PlanetBase::CalculateIntervalProduction()
 // For Buildings
 void Acpp_PlanetBase::AddMaxWorker(FString name)
 {
-
+    if (name == "ResearchLab")
+    {
+        Scientists.Max += 2;
+    }
+    if (name == "AlloyForge")
+    {
+        Metallurgists.Max += 3;
+    }
+    if (name == "Residences")
+    {
+        Population += 3;
+    }
 }
 
 // For districts
@@ -67,7 +78,7 @@ void Acpp_PlanetBase::AddMaxWorker(int32 index)
     }
     if(index == 2)
     {
-        Technicians.Max += 2;
+        Technicians.Max += 3;
     }
     if(index == 3)
     {
@@ -268,6 +279,7 @@ void Acpp_PlanetBase::AddCurrentDistrict(FName districtName)
     if (districtName == "Residential" && Residential.Current < Residential.Max)
     {
         Residential.Current++;
+        Population += 5;
     }
 }
 
