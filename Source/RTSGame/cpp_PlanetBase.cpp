@@ -47,6 +47,30 @@ void Acpp_PlanetBase::CalculateIntervalProduction()
 
     // Pop Upkeep
     IntervalProduction.Food -= Population;
+
+    // District Upkeep
+    IntervalProduction.Energy -= Mining.Current;
+    IntervalProduction.Energy -= Industrial.Current;
+    IntervalProduction.Energy -= Generator.Current * 2;
+    IntervalProduction.Energy -= Farming.Current;
+    IntervalProduction.Energy -= Residential.Current * 2;
+
+    // Building Upkeep
+    for (int i = 0; i < Buildings.Num(); i++)
+    {
+        if (Buildings[i] == "ResearchLab")
+        {
+            IntervalProduction.Energy -= 2;
+        }
+        if (Buildings[i] == "AlloyForge")
+        {
+            IntervalProduction.Energy -= 2;
+        }
+        if (Buildings[i] == "Residences")
+        {
+            IntervalProduction.Energy -= 1;
+        }
+    }
 }
 
 // For Buildings
@@ -91,7 +115,7 @@ UFUNCTION(BlueprintCallable)
 void Acpp_PlanetBase::AddCurrentWorker(FString Name)
 {
     // Cannot Assign Workers If There Is No One To Assign
-    if(Unemployed == 0)
+    if(Unemployed <= 0)
     {
         return;
     }
