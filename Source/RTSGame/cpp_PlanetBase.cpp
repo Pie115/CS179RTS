@@ -24,6 +24,7 @@ void Acpp_PlanetBase::Tick(float DeltaTime)
 
 }
 
+UFUNCTION(BlueprintCallable)
 void Acpp_PlanetBase::CalculateIntervalProduction()
 {
     IntervalProduction = FResourceList();
@@ -46,12 +47,47 @@ void Acpp_PlanetBase::CalculateIntervalProduction()
 
     // Pop Upkeep
     IntervalProduction.Food -= Population;
+
+    // District Upkeep
+    IntervalProduction.Energy -= Mining.Current;
+    IntervalProduction.Energy -= Industrial.Current;
+    IntervalProduction.Energy -= Generator.Current * 2;
+    IntervalProduction.Energy -= Farming.Current;
+    IntervalProduction.Energy -= Residential.Current * 2;
+
+    // Building Upkeep
+    for (int i = 0; i < Buildings.Num(); i++)
+    {
+        if (Buildings[i] == "ResearchLab")
+        {
+            IntervalProduction.Energy -= 2;
+        }
+        if (Buildings[i] == "AlloyForge")
+        {
+            IntervalProduction.Energy -= 2;
+        }
+        if (Buildings[i] == "Residences")
+        {
+            IntervalProduction.Energy -= 1;
+        }
+    }
 }
 
 // For Buildings
 void Acpp_PlanetBase::AddMaxWorker(FString name)
 {
-
+    if (name == "ResearchLab")
+    {
+        Scientists.Max += 2;
+    }
+    if (name == "AlloyForge")
+    {
+        Metallurgists.Max += 3;
+    }
+    if (name == "Residences")
+    {
+        Population += 3;
+    }
 }
 
 // For districts
@@ -67,7 +103,7 @@ void Acpp_PlanetBase::AddMaxWorker(int32 index)
     }
     if(index == 2)
     {
-        Technicians.Max += 2;
+        Technicians.Max += 3;
     }
     if(index == 3)
     {
@@ -79,7 +115,7 @@ UFUNCTION(BlueprintCallable)
 void Acpp_PlanetBase::AddCurrentWorker(FString Name)
 {
     // Cannot Assign Workers If There Is No One To Assign
-    if(Unemployed == 0)
+    if(Unemployed <= 0)
     {
         return;
     }
@@ -268,6 +304,7 @@ void Acpp_PlanetBase::AddCurrentDistrict(FName districtName)
     if (districtName == "Residential" && Residential.Current < Residential.Max)
     {
         Residential.Current++;
+        Population += 5;
     }
 }
 
