@@ -32,5 +32,50 @@ void Acpp_playerInfo::Tick(float DeltaTime)
 void Acpp_playerInfo::UpdateResources()
 {
 	CurrentResources += IntervalProduction;
+	if(CurrentResources.Energy <= 0)
+	{
+		CurrentResources.Energy = 0;
+	}
+	if(CurrentResources.Minerals <= 0)
+	{
+		CurrentResources.Minerals = 0;
+	}
+	if(CurrentResources.Food <= 0)
+	{
+		CurrentResources.Food = 0;
+	}
+	if(CurrentResources.Alloys <= 0)
+	{
+		CurrentResources.Alloys = 0;
+	}
+	if(CurrentResources.Science <= 0)
+	{
+		CurrentResources.Science = 0;
+	}
 
 }
+
+UFUNCTION(BlueprintCallable)
+void Acpp_playerInfo::ChangeResource(int32 index, int32 amount)
+{
+	if(index == 0)
+	{
+		CurrentResources.Energy += amount;
+	}
+	else if(index == 1)
+	{
+		CurrentResources.Minerals += amount;
+	}
+	else if(index == 2)
+	{
+		CurrentResources.Food += amount;
+	}
+	else if(index == 3)
+	{
+		CurrentResources.Alloys += amount;
+	}
+	else if(index == 4)
+	{
+		CurrentResources.Science += amount;
+	}
+} 

@@ -61,6 +61,7 @@ struct FResourceList {
 		*this = *this - Other;
 		return *this;
 	}
+
 };
 
 UCLASS()
@@ -80,6 +81,9 @@ public:
 	
 	UFUNCTION(BlueprintCallable)
     void UpdateResources();
+
+	UFUNCTION(BlueprintCallable)
+    void ChangeResource(int32 a, int32 b);
 
 	
 

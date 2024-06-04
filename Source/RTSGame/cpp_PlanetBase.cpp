@@ -53,6 +53,17 @@ void Acpp_PlanetBase::IntervalUpdate()
         Growth -= 1;
         Population+=1;
     }
+    CalculateLaserDamage();
+}
+
+UFUNCTION(BlueprintCallable)
+void Acpp_PlanetBase::CalculateLaserDamage()
+{
+    PlanetGunnersDamage = 10 * Gunners;
+    if(playerOwner)
+    {
+        PlanetGunnersDamage *= 1.0 + playerOwner->CurrentResources.Science / 100.0f;
+    }    
 }
 
 
@@ -114,6 +125,7 @@ void Acpp_PlanetBase::CalculateIntervalProduction()
     {
         playerOwner->IntervalProduction += IntervalProduction;
     }
+    CalculateLaserDamage();
 }
 
 // For Buildings
