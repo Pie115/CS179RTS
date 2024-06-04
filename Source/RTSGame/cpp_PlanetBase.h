@@ -98,6 +98,9 @@ public:
     void IntervalUpdate();
 
     UFUNCTION(BlueprintCallable)
+    void CalculateLaserDamage();
+
+    UFUNCTION(BlueprintCallable)
     void SetBuildingAt(int32 index, FName building);
 
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="PlanetInfo")
@@ -149,5 +152,9 @@ public:
     float Growth;
 
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "PlanetInfo")
-    float Housing;
+    int32 Housing;
+
+    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "PlanetInfo")
+    float PlanetGunnersDamage;
+
 };
