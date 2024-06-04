@@ -14,7 +14,8 @@
 		"npm.autoDetect": "off",
 		"files.associations": {
 			"rope": "cpp",
-			"variant": "cpp"
+			"variant": "cpp",
+			"*.ipp": "cpp"
 		}
 	},
 	"extensions": {

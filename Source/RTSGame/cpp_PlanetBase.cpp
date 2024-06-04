@@ -64,6 +64,10 @@ void Acpp_PlanetBase::CalculateLaserDamage()
     {
         PlanetGunnersDamage *= 1.0 + playerOwner->CurrentResources.Science / 100.0f;
     }    
+    if(!Gunners)
+    {
+        PlanetGunnersDamage = 10;
+    }
 }
 
 
