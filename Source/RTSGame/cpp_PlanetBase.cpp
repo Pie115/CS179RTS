@@ -8,6 +8,8 @@ Acpp_PlanetBase::Acpp_PlanetBase()
 {
  	// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
+    IntervalProduction = FResourceList();
+    Housing = 15;
 
 }
 
@@ -25,8 +27,45 @@ void Acpp_PlanetBase::Tick(float DeltaTime)
 }
 
 UFUNCTION(BlueprintCallable)
+void Acpp_PlanetBase::IntervalUpdate()
+{
+    if(playerOwner)
+    {
+        if(playerOwner->CurrentResources.Food > 0)
+        {
+            Growth += 0.05;
+        }
+        else
+        {
+            Growth += 0.025;
+        }
+    }
+    if(Housing > Population)
+    {
+        Growth += 0.05;
+    }
+    else
+    {
+        Growth += 0.025;
+    }
+    Growth += 0.5;
+    if(Growth >= 1.0)
+    {
+        Growth -= 1;
+        Population+=1;
+    }
+}
+
+
+UFUNCTION(BlueprintCallable)
 void Acpp_PlanetBase::CalculateIntervalProduction()
 {
+    if(playerOwner)
+    {
+        playerOwner->IntervalProduction -= IntervalProduction;
+    }
+    
+    
     IntervalProduction = FResourceList();
     IntervalProduction.Energy = Technicians.Current * 6;
 
@@ -70,6 +109,11 @@ void Acpp_PlanetBase::CalculateIntervalProduction()
         {
             IntervalProduction.Energy -= 1;
         }
+    }
+
+    if(playerOwner)
+    {
+        playerOwner->IntervalProduction += IntervalProduction;
     }
 }
 

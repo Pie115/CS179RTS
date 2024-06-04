@@ -4,6 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/Actor.h"
+#include "cpp_playerInfo.h"
 #include "cpp_PlanetBase.generated.h"
 
 USTRUCT(BlueprintType)
@@ -34,29 +35,7 @@ struct FDistrict {
         : Max(0), Current(0) {}
 };
 
-USTRUCT(BlueprintType)
-struct FResourceList {
-    GENERATED_BODY()
 
-    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Resources")
-    int32 Energy;
-
-    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Resources")
-    int32 Minerals;
-    
-    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Resources")
-    int32 Food;
-
-    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Resources")
-    int32 Alloys;
-
-    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Resources")
-    int32 Science;
-    
-
-    FResourceList()
-        : Energy(0), Minerals(0), Food(0), Alloys(0), Science(0) {}
-};
 
 UCLASS()
 class RTSGAME_API Acpp_PlanetBase : public AActor
@@ -75,9 +54,13 @@ public:
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
 
+    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="PlanetInfo")
+    Acpp_playerInfo* playerOwner;
+
     UFUNCTION(BlueprintCallable)
     void CalculateIntervalProduction();
-    
+
+
     void AddMaxWorker(FString name);
 
 	// For Districts
@@ -110,6 +93,9 @@ public:
 
     UFUNCTION(BlueprintCallable)
     FName GetBuildingAt(int32 index);
+    
+    UFUNCTION(BlueprintCallable)
+    void IntervalUpdate();
 
     UFUNCTION(BlueprintCallable)
     void SetBuildingAt(int32 index, FName building);
@@ -158,4 +144,10 @@ public:
 
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "PlanetInfo")
     TArray<FName> Buildings;
+
+    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "PlanetInfo")
+    float Growth;
+
+    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "PlanetInfo")
+    float Housing;
 };
