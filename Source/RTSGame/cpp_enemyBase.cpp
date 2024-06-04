@@ -22,6 +22,7 @@ void Acpp_enemyBase::BeginPlay()
 
 		// Calculate the direction vector
 		FVector TargetLocation = FindGate();
+	
 		FVector Direction = TargetLocation - ActorLocation;
 		Direction.Z = 0;  // Optional: Ignore vertical difference if you want the actor to only rotate horizontally
 
@@ -56,6 +57,7 @@ FVector Acpp_enemyBase::FindGate()
 
 	///Game/TA2Project/Non-PlayerEntities/Gate.Gate_C
 	//Game/Blueprints/Gate.Gate_C
+	UE_LOG(LogTemp, Error, TEXT("Finding Gate"));
     UClass* ActorClass = StaticLoadClass(AActor::StaticClass(), nullptr, TEXT("/Game/Blueprints/Gate.Gate_C"));
 
     // Ensure the Blueprint class was found
@@ -67,8 +69,10 @@ FVector Acpp_enemyBase::FindGate()
 		if(FoundActors.Num() == 1)
 		{
 			return FoundActors[0]->GetActorLocation();	
+			UE_LOG(LogTemp, Log, TEXT("Gate found at location: %s"), *FoundActors[0]->GetActorLocation().ToString());
 		}
 		UE_LOG(LogTemp, Error, TEXT("Multiple gates found"));
+
 		
     }
     UE_LOG(LogTemp, Error, TEXT("No gate class found"));
