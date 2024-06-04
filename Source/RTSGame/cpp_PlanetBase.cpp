@@ -48,7 +48,6 @@ void Acpp_PlanetBase::IntervalUpdate()
     {
         Growth += 0.025;
     }
-    Growth += 0.5;
     if(Growth >= 1.0)
     {
         Growth -= 1;
