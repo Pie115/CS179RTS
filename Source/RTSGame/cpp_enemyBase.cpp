@@ -53,28 +53,28 @@ void Acpp_enemyBase::Tick(float DeltaTime)
 
 FVector Acpp_enemyBase::FindGate()
 {
-	// Load the Blueprint class at runtime
+	//// Load the Blueprint class at runtime
 
-	///Game/TA2Project/Non-PlayerEntities/Gate.Gate_C
-	//Game/Blueprints/Gate.Gate_C
-	UE_LOG(LogTemp, Error, TEXT("Finding Gate"));
-    UClass* ActorClass = StaticLoadClass(AActor::StaticClass(), nullptr, TEXT("/Game/Blueprints/Gate.Gate_C"));
+	/////Game/TA2Project/Non-PlayerEntities/Gate.Gate_C
+	////Game/Blueprints/Gate.Gate_C
+	////UE_LOG(LogTemp, Error, TEXT("Finding Gate"));
+ //   UClass* ActorClass = StaticLoadClass(AActor::StaticClass(), nullptr, TEXT("/Game/Blueprints/Gate.Gate_C"));
 
-    // Ensure the Blueprint class was found
-    if (ActorClass)
-    {
-        TArray<AActor*> FoundActors;
-        UGameplayStatics::GetAllActorsOfClass(GetWorld(), ActorClass, FoundActors);
+ //   // Ensure the Blueprint class was found
+ //   if (ActorClass)
+ //   {
+ //       TArray<AActor*> FoundActors;
+ //       UGameplayStatics::GetAllActorsOfClass(GetWorld(), ActorClass, FoundActors);
 
-		if(FoundActors.Num() == 1)
-		{
-			return FoundActors[0]->GetActorLocation();	
-			UE_LOG(LogTemp, Log, TEXT("Gate found at location: %s"), *FoundActors[0]->GetActorLocation().ToString());
-		}
-		UE_LOG(LogTemp, Error, TEXT("Multiple gates found"));
+	//	if(FoundActors.Num() == 1)
+	//	{
+	//		return FoundActors[0]->GetActorLocation();	
+	//		//UE_LOG(LogTemp, Log, TEXT("Gate found at location: %s"), *FoundActors[0]->GetActorLocation().ToString());
+	//	}
+	//	//UE_LOG(LogTemp, Error, TEXT("Multiple gates found"));
 
-		
-    }
-    UE_LOG(LogTemp, Error, TEXT("No gate class found"));
-	return FVector(0,0,0);
+	//	
+ //   }
+ //   //UE_LOG(LogTemp, Error, TEXT("No gate class found"));
+	return FVector(0,0,-380);
 }
